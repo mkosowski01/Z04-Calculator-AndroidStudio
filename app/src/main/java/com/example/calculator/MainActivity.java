@@ -14,16 +14,18 @@ import org.mozilla.javascript.Scriptable;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText expression, result;
+    private EditText calculation, result;
     private String currentExpression;
+
     private void clear() {
-        expression.setText("");
+        calculation.setText("");
         result.setText("");
     }
+
     private void setValue(String value) {
-        currentExpression = expression.getText().toString();
+        currentExpression = calculation.getText().toString();
         currentExpression += value;
-        expression.setText(currentExpression);
+        calculation.setText(currentExpression);
     }
 
     @Override
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        expression = findViewById(R.id.expression);
+        calculation = findViewById(R.id.expression);
         result = findViewById(R.id.result);
 
         Button numButton = findViewById(R.id.numButton);
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!result.getText().toString().isEmpty()) {
-                    expression.setText(result.getText().toString());
+                    calculation.setText(result.getText().toString());
                     result.setText("");
                 }
                 setValue("^");
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!result.getText().toString().isEmpty()) {
-                    expression.setText(result.getText().toString());
+                    calculation.setText(result.getText().toString());
                     result.setText("");
                 }
                 setValue("/");
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!result.getText().toString().isEmpty()) {
-                    expression.setText(result.getText().toString());
+                    calculation.setText(result.getText().toString());
                     result.setText("");
                 }
                 setValue("*");
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!result.getText().toString().isEmpty()) {
-                    expression.setText(result.getText().toString());
+                    calculation.setText(result.getText().toString());
                     result.setText("");
                 }
                 setValue("-");
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         sevenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         eightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         nineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -134,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!result.getText().toString().isEmpty()) {
-                    expression.setText(result.getText().toString());
+                    calculation.setText(result.getText().toString());
                     result.setText("");
                 }
                 setValue("+");
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         fourButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -155,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         fiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -166,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         sixButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -177,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
         oneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -188,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
         twoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -199,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
         threeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -210,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         zeroButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 if (!result.getText().toString().isEmpty()) {
                     clear();
                 }
@@ -221,9 +223,9 @@ public class MainActivity extends AppCompatActivity {
         dotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentExpression = expression.getText().toString();
+                currentExpression = calculation.getText().toString();
                 currentExpression += ".";
-                expression.setText(currentExpression);
+                calculation.setText(currentExpression);
             }
         });
         enterButton.setOnClickListener(new View.OnClickListener() {
@@ -231,9 +233,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 MaterialButton button = (MaterialButton) view;
                 String buttonText = button.getText().toString();
-                String dataToCalculate = expression.getText().toString();
+                String dataToCalculate = calculation.getText().toString();
 
-                expression.setText(dataToCalculate);
+                calculation.setText(dataToCalculate);
 
                 String finalResult = getResult(dataToCalculate);
 
@@ -242,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
+
             String getResult(String data) {
                 try {
                     Context context = Context.enter();
